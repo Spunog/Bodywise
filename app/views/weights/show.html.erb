@@ -1,0 +1,29 @@
+<ol class="breadcrumb">
+	<li><%= link_to "All", weights_path %></li>
+	<li class="active">View</li>
+</ol>
+
+<div class="row">
+	<div class="col-sm-offset-3 col-sm-6">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	    	
+	    	<%= @weight.dateWeighted.to_formatted_s(:short) %>
+
+			<%= link_to(edit_weight_path(@weight)) do %>
+				<span class="pull-right glyphicon glyphicon-pencil"></span>
+			<% end %>
+
+	   	</div>
+	    <div class="panel-body text-center">
+
+			<p class="margin_bottom">
+			  <label>Weight lbs</label>
+			  <br />
+			  <%= @weight.weight_lbs %>
+			</p>
+
+	    </div> <!-- end Panel Body -->
+	  </div> <!-- end Panel  -->
+	</div> <!-- end col -->
+</div> <!-- end row -->

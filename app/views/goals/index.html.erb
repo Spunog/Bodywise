@@ -1,0 +1,36 @@
+<div class="row">
+
+  <div class="col-md-12">
+
+    <table class='table'>
+
+      <thead>
+        <tr>
+          <th>Weight lbs</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @goals.each do |goal| %>
+          <tr>
+            <td class="col-sm-10"><%= goal.weight_lbs %></td>
+            <td class="col-sm-1">
+              <%= link_to '', edit_goal_path(goal), class:"btn btn-default glyphicon glyphicon-pencil" %>
+            </td>
+            <td class="col-sm-1">
+              <%= link_to '', goal, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default glyphicon glyphicon-trash" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<div class="row text-center margin_bottom">
+  <%= link_to 'New Goal', new_goal_path, class:"btn btn-primary" %>
+</div>

@@ -1,0 +1,41 @@
+<%= form_for(@goal) do |f| %>
+
+  <% if @goal.errors.any? %>
+    <div class="alert alert-danger">
+      <div id="error_explanation">
+        <strong>
+          <%= pluralize(@goal.errors.count, "error") %>
+          prohibited this goal from being saved:
+        </strong>
+
+        <ul>
+          <% @goal.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Goal Weight</div>
+        <div class="panel-body text-center">
+
+        <div class="field">
+          <%= f.text_field :weight_lbs %> lbs
+        </div>
+
+        <div class="actions margin_top">
+          <div class="margin_top">
+            <%= f.submit 'Save', :class => 'btn btn-default' %>
+          </div>
+        </div>
+
+        </div> <!-- end Panel Body -->
+      </div> <!-- end Panel  -->
+    </div> <!-- end col -->
+  </div> <!-- end row -->
+
+<% end %>

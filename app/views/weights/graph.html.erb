@@ -1,0 +1,16 @@
+<div class="row">
+
+  <div class="col-md-12">
+
+	<%= content_tag "div", id: "js-main-graph", data: {url: @graphURL} do %>
+		Loading graph...
+	<% end %>
+
+    <!-- <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
+  </div>
+
+</div>
+
+<div class="row text-center margin_bottom">
+  <%= link_to 'New Weight', new_weight_path, class:"btn btn-primary" %>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+
+  <div class="col-md-6">
+      <%= content_tag "div", id: "js-main-graph", data: {url: @graphURL} do %>
+        Loading graph...
+      <% end %>
+  </div>
+
+  <div class="col-md-6">
+
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>lbs</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @weights.each do |weight| %>
+          <tr>
+            <td class="col-sm-5"><%= weight.dateWeighted.strftime("%d %b %y") %></td>
+            <td class="col-sm-5"><%= weight.weight_lbs %></td>
+            <td class="col-sm-1">
+              <%= link_to '', edit_weight_path(weight), class:"btn btn-default glyphicon glyphicon-pencil" %>
+            </td>
+            <td class="col-sm-1"><%= link_to '', weight, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default glyphicon glyphicon-trash" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="row text-center">
+      <%= will_paginate @weights,previous_label: h("<"), next_label: h(">"), renderer: BootstrapPagination::Rails %>  
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row text-center margin_bottom">
+  <%= link_to 'New Weight', new_weight_path, class:"btn btn-primary" %>
+</div>

@@ -1,0 +1,21 @@
+<div class="intro text-center col-sm-5">
+	<span><%= image_tag "tape_on_scale.jpg", class:"img-responsive" %></span>
+</div>
+<div class="col-sm-7">
+	<h2>Welcome to Bodywise?!</h2>
+	<p>
+		As this is <em>super alpha</em> a goal weight has been set up 
+		for you as and currently has a value of <%= @goal_weight %>lbs!
+	<p>
+	<p>
+		This may not suit you so you can update it by clicking here: <br />
+		<%=link_to "Edit Goal", goal_path %>
+	</p>
+	<p>
+		Other than that, please use the navigation at the top of the site to add and review your weights on a regular basis.
+	</p>
+	<p>
+		All the best, <br/>
+		Rails Newbie :)
+	</p>
+</div>
