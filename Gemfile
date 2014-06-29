@@ -48,4 +48,6 @@ gem 'will_paginate-bootstrap'
 
 gem 'jquery-ui-rails'
 
+gem 'rails_12factor', group: :production
+
 
