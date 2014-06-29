@@ -1,14 +1,16 @@
 class HomeController < ApplicationController
-	before_action :get_user, only: [:index]
+	before_filter :authenticate_user!, :except => [:index]
 
 	def index
-		@goal_weight = @user.goals.first.weight_lbs
-	end
-
-	private
-
-	def get_user
-		@user = current_user
+		if current_user.nil?
+			@goal_weight = 0
+			@signed_in = false
+		else
+			@signed_in = true
+			@user = current_user
+			@goal_weight = @user.goals.first.weight_lbs
+		end
+		
 	end
 
 end
