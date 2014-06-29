@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def create_default_goal
-      goal = self.goals.create(weight_lbs: 180)
+      goal = self.goals.create(weight_lbs: 150)
       goal.save!
     end
 
