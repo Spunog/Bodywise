@@ -1,56 +1,6 @@
-
 <ol class="breadcrumb">
 	<li><%= link_to "Weights", weights_path %></li>
 	<li class="active">Edit</li>
 </ol>
 
-<%= form_for(@weight,html: {role: "form"}) do |f| %>
-
-	<% if @weight.errors.any? %>
-		<div class="alert alert-danger">
-			<div id="error_explanation">
-				<strong>
-					<%= pluralize(@weight.errors.count, "error") %>
-					prohibited this weight from being saved:
-				</strong>
-
-				<ul>
-					<% @weight.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-	<% end %>
-
-	<div class="row">
-		<div class="col-sm-offset-3 col-sm-6">
-		  <div class="panel panel-default">
-		    <div class="panel-heading">Edit Weight</div>
-		    <div class="panel-body text-center">
-
-				<div class="field">
-					<%= f.text_field :weight_lbs %> lbs
-				</div>
-
-				<div class="field margin_bottom">
-					<div class="margin_top margin_bottom">on</div>
-					<%= text_field_tag(:dateWeightedDisplay,@weight.dateWeighted.strftime("%d %b %y") , class:'datepicker') %>
-					<%= f.hidden_field :dateWeighted, class:'datepicker-alt' %>
-				</div>
-
-				<div class="actions margin_top">
-					<div class="margin_top">
-						<%= f.submit 'Save', :class => 'btn btn-default' %>
-					</div>
-					<div class="margin_top">
-						<%= link_to :Cancel, weights_path %>
-					</div>
-				</div>
-
-		    </div> <!-- end Panel Body -->
-		  </div> <!-- end Panel  -->
-		</div> <!-- end col -->
-	</div> <!-- end row -->
-
-<% end %>
+<%= render 'form' %>
