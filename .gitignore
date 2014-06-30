@@ -26,3 +26,4 @@ config/secrets.yml
 .git.bfg-report/
 bfg.jar
 .DS_Store
+/config/initializers/app_env_vars.rb
