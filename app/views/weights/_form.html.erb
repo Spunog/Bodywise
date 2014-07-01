@@ -34,7 +34,9 @@
 			    	</div>
 
 			    	<div class="col-sm-5 col-xs-5">
-						<%= text_field_tag(:date_weightedDisplay,@weight.date_weighted.strftime("%d %b %y") , class:'datepicker col-xs-10 col-sm-11 col-md-10 col-lg-8') %>
+						<%= text_field_tag(:date_weightedDisplay,@weight.date_weighted.strftime("%d/%m/%y") , class:'datepicker col-xs-10 col-sm-11 col-md-10 col-lg-8',:maxlength => 8) %>
+						<em class="date_format_tooltip">format: dd/mm/yy</em>
+
 						<%= f.hidden_field :date_weighted, class:'datepicker-alt' %>
 			    	</div>
 		    	</div>
