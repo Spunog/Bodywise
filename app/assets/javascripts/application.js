@@ -18,3 +18,4 @@
 //= require highcharts
 //= require turbolinks
 //= require jquery.ui.datepicker
+//= require moment

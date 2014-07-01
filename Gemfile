@@ -52,6 +52,8 @@ gem 'rails_12factor', group: :production
 
 gem 'figaro'
 
+gem 'momentjs-rails', '~> 2.7.0'
+
 ruby '2.1.2'
 
 

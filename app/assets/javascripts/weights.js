@@ -1,16 +1,14 @@
 function init_datepicker(options){
     if(!options) options = {}
-    if(!options.picker) alert('Datepicker selector cannot be blank');
+    if(!options.picker){alert('Datepicker selector cannot be blank');return false;};
 
     options.picker.each(function(){
         var $altField = $(this).parent().find(options.altField)
         $(this).datepicker({
-             dateFormat: 'dd M y'
+             dateFormat: 'dd/mm/y'
             ,altFormat: "yy-mm-dd"
             ,altField: $altField
         });
-        options.picker.attr('readonly','readonly');
-        //$altField.hide();
     });
 
 }
