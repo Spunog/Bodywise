@@ -89,7 +89,7 @@ class WeightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_params
-      params.require(:weight).permit(:date_weighted, :weight_lbs)
+      params.require(:weight).permit(:date_weighted, :weight_lbs,:note)
     end
 
     def get_user
