@@ -8,6 +8,9 @@ function init_datepicker(options){
              dateFormat: 'dd/mm/y'
             ,altFormat: "yy-mm-dd"
             ,altField: $altField
+            ,showButtonPanel: true
+            ,changeMonth: true
+            ,changeYear: true
         });
     });
 
