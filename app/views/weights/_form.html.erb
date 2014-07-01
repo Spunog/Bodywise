@@ -29,8 +29,8 @@
 
 				<div class="field margin_bottom">
 					<div class="margin_top margin_bottom">on</div>
-					<%= text_field_tag(:dateWeightedDisplay,@weight.dateWeighted.strftime("%d %b %y") , class:'datepicker') %>
-					<%= f.hidden_field :dateWeighted, class:'datepicker-alt' %>
+					<%= text_field_tag(:date_weightedDisplay,@weight.date_weighted.strftime("%d %b %y") , class:'datepicker') %>
+					<%= f.hidden_field :date_weighted, class:'datepicker-alt' %>
 				</div>
 
 				<div class="actions margin_top">

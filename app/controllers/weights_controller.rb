@@ -7,7 +7,7 @@ class WeightsController < ApplicationController
   # GET /weights.json
   def index
 
-    order = (params[:order]=="ASC") ? '"dateWeighted" ASC' : '"dateWeighted" DESC'
+    order = (params[:order]=="ASC") ? 'date_weighted ASC' : 'date_weighted DESC'
     per_page = (params.has_key?(:per_page) && params[:per_page].to_i != 0) ? params[:per_page].to_i : 7
 
     @weights = @user.weights.order(order).page(params[:page]).per_page(per_page)
@@ -22,7 +22,7 @@ class WeightsController < ApplicationController
 
   def graph
     limit = (params.has_key?(:limit) && params[:limit].to_i != 0) ? params[:limit].to_i : 7
-    @weights = @user.weights.order('"dateWeighted" DESC').limit(limit).reverse
+    @weights = @user.weights.order('date_weighted DESC').limit(limit).reverse
     @graphURL = weights_graph_path + '?limit=31' #default limit, will call this controller for json again, kinda weird, but think its ok?
   end
 
@@ -89,7 +89,7 @@ class WeightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_params
-      params.require(:weight).permit(:dateWeighted, :weight_lbs)
+      params.require(:weight).permit(:date_weighted, :weight_lbs)
     end
 
     def get_user

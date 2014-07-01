@@ -21,7 +21,7 @@
       <tbody>
         <% @weights.each do |weight| %>
           <tr>
-            <td class="col-sm-5"><%= weight.dateWeighted.strftime("%d %b %y") %></td>
+            <td class="col-sm-5"><%= weight.date_weighted.strftime("%d %b %y") %></td>
             <td class="col-sm-5"><%= weight.weight_lbs %></td>
             <td class="col-sm-1">
               <%= link_to '', edit_weight_path(weight), class:"btn btn-default glyphicon glyphicon-pencil" %>

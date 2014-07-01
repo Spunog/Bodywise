@@ -27,7 +27,7 @@ en:
     attributes:
       weight:
         weight_lbs: "Weight"
-        dateWeighted: "Weight"
+        date_weighted: "Weight"
     errors:
       models:
         weight:
