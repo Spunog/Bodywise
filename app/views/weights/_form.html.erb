@@ -18,31 +18,34 @@
 	<% end %>
 
 	<div class="row">
-		<div class="col-sm-offset-3 col-sm-6">
+		<div class="col-sm-offset-2 col-xs-12 col-sm-8">
 		  <div class="panel panel-default">
 		    <div class="panel-heading">Edit Weight</div>
-		    <div class="panel-body text-center">
+		    <div class="panel-body">
 
-				<div class="field">
-					<%= f.text_field :weight_lbs %> lbs
-				</div>
+		    	<div class="row">
+			    	<div class="col-sm-5 col-xs-5">
+						<%= f.text_field :weight_lbs, class:'text-right col-xs-8 col-md-6 col-sm-9' %>
+						<span class="col-xs-1">lbs</span>
+			    	</div>
 
-				<div class="field margin_bottom">
-					<div class="margin_top margin_bottom">on</div>
-					<%= text_field_tag(:date_weightedDisplay,@weight.date_weighted.strftime("%d %b %y") , class:'datepicker') %>
-					<%= f.hidden_field :date_weighted, class:'datepicker-alt' %>
-				</div>
+			    	<div class="col-xs-2">
+			    		on
+			    	</div>
 
-				<div class="actions margin_top">
-					<div class="margin_top">
-						<%= f.submit 'Save', :class => 'btn btn-default' %>
-					</div>
-					<div class="margin_top">
-						<%= link_to :Cancel, weights_path %>
-					</div>
-				</div>
+			    	<div class="col-sm-5 col-xs-5">
+						<%= text_field_tag(:date_weightedDisplay,@weight.date_weighted.strftime("%d %b %y") , class:'datepicker col-xs-10 col-sm-11 col-md-10 col-lg-8') %>
+						<%= f.hidden_field :date_weighted, class:'datepicker-alt' %>
+			    	</div>
+		    	</div>
 
 		    </div> <!-- end Panel Body -->
+		    <div class="panel-footer">
+				<div class="actions text-center">
+		    		<%= link_to :Cancel, weights_path %>
+		    		<%= f.submit 'Save', :class => 'margin_left btn btn-default' %>
+				</div>
+		    </div>
 		  </div> <!-- end Panel  -->
 		</div> <!-- end col -->
 	</div> <!-- end row -->
