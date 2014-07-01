@@ -27,3 +27,5 @@ config/secrets.yml
 bfg.jar
 .DS_Store
 /config/initializers/app_env_vars.rb
+# Ignore application configuration
+/config/application.yml

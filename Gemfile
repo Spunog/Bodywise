@@ -50,6 +50,8 @@ gem 'jquery-ui-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'figaro'
+
 ruby '2.1.2'
 
 
