@@ -62,14 +62,40 @@ $( document ).ready(function() {
                                                     }
                                                 }]
                             }]
-            ,tooltip    :   {
-                                valueSuffix: 'lbs'
+            ,tooltip:       {
+                                formatter: function() {
+                                    var htmlToolTip = '<div>' +  this.y + ' lbs on ' + this.x + '</div>';
+
+                                    if(this.point.note.length > 0){
+                                        htmlToolTip += '<div class="margin_top">Note:</div>'
+                                        htmlToolTip += '<div><em>' + this.point.note + '</em></div>'
+                                    }
+
+                                    return htmlToolTip;
+                                }
+                                ,useHTML: true
                             }
             ,legend     :   {
                                 layout: 'vertical',
                                 align: 'right',
                                 verticalAlign: 'middle',
                                 borderWidth: 0
+                            }
+            ,plotOptions: {
+                                series: {
+                                    point: {
+                                        events: {
+                                            mouseOver: function() {
+                                                
+                                            }
+                                        }
+                                    },
+                                    events: {
+                                        mouseOut: function() {                        
+                                            
+                                        }
+                                    }
+                                }
                             }
             ,series     :   [{
                                 name: '*Weight',
@@ -107,7 +133,13 @@ $( document ).ready(function() {
                             var weightData = data.graph.weights;
 
                             for(i=0;i < weightData.length;i++){
-                                graphData.yAxis.push(parseFloat(weightData[i].weight_lbs));
+                                
+                                var pointY = {
+                                                 y    : parseFloat(weightData[i].weight_lbs)
+                                                ,note : weightData[i].note
+                                              }
+
+                                graphData.yAxis.push(pointY);
                                 graphData.xAxis.push(weightData[i].description);
                             }
 
