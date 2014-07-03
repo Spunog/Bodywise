@@ -1,7 +1,7 @@
 class WeightsController < ApplicationController
   before_action :get_user, only: [:index,:show,:edit,:update,:destroy,:new,:create,:graph]
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user! #, :except => [:show, :index]
+  before_filter :authenticate_user! #, :except => [:index,:graph]
 
   # GET /weights
   # GET /weights.json
@@ -88,7 +88,13 @@ class WeightsController < ApplicationController
     end
 
     def get_user
-      @user = current_user
+
+      if user_signed_in?
+        @user = current_user
+      else
+        @user = User.find(params[:id])
+      end
+
     end
 
 end

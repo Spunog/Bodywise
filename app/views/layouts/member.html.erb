@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bodywise</title>
+	<%= favicon_link_tag 'fav.ico' %>
+	<%= favicon_link_tag 'fav.png', rel: 'apple-touch-icon', type: 'image/png' %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+	<h2>Public Area</h2>
+
+	<div class='container'>
+		<% if notice %>
+		  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
+
+		<%= yield %>
+	</div>
+
+</body>
+</html>

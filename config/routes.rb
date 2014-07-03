@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'member/:id' => 'member#index' , as: 'member_index'
+  get 'member/:id/graph' => 'member#graph' , as: 'member_graph'
+
   #resources :goals, only: [:update,:edit]
 
   get 'weights/goal' => 'goals#edit', as: 'goal'

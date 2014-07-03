@@ -51,15 +51,6 @@ $( document ).ready(function() {
                                                         value: 0,
                                                         width: 1,
                                                         color: '#808080'
-                                                }
-                                                ,{
-                                                    value : data.goal,
-                                                    color : 'red',
-                                                    dashStyle : 'shortdash',
-                                                    width : 2,
-                                                    label : {
-                                                        text : 'Goal'
-                                                    }
                                                 }]
                             }]
             ,tooltip:       {
@@ -100,17 +91,32 @@ $( document ).ready(function() {
             ,series     :   [{
                                 name: '*Weight',
                                 data : data.yAxis
-                            }
-                            ,{
-                                 name: '*Goal',
-                                 type: 'scatter',
-                                 marker: {
-                                      enabled: false
-                                 },
-                                 data: [data.goal]
                             }]
 
         });
+
+        //Add Goal Weight if present
+        if(data.goal && data.goal > 0){
+            $graph.highcharts().yAxis[0].addPlotLine({
+                                            value : data.goal,
+                                            color : 'red',
+                                            dashStyle : 'shortdash',
+                                            width : 2,
+                                            label : {
+                                                text : 'Goal'
+                                            }
+                                        });
+            
+
+            $graph.highcharts().addSeries({
+                                             name: '*Goal',
+                                             type: 'scatter',
+                                             marker: {
+                                                  enabled: false
+                                             },
+                                             data: [data.goal]
+                                          });  
+        }
 
     }
 

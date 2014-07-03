@@ -1,0 +1,19 @@
+
+<h2>Email: <%= @user.email %></h2>
+
+<div class="container-fluid well span6 margin_top">
+	<div class="row-fluid">
+
+		<div class="span8">
+			
+			<h6>Weights:</h6>
+			<ul>
+				<% @user.weights.each do |weight| %>
+					<li><%= weight.weight_lbs %> lbs</li>
+				<% end %>
+			</ul>
+
+		</div>
+
+	</div>
+</div>
