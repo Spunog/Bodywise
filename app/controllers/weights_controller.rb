@@ -13,11 +13,6 @@ class WeightsController < ApplicationController
     @weights = @user.weights.order(order).page(params[:page]).per_page(per_page)
     @graphURL = weights_graph_path
 
-    # respond_to do |format|
-    #     format.html
-    #     format.json { render json: @weights.as_json(only: [:date,:weight_lbs]) }
-    # end
-
   end
 
   def graph
