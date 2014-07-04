@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'member/:username' => 'member#index' , as: 'member_index'
+  get 'member' => 'member#index' , as: 'member_index'
+  get 'member/:username' => 'member#profile' , as: 'member_profile'
   get 'member/:username/graph' => 'member#graph' , as: 'member_graph'
 
   #resources :goals, only: [:update,:edit]

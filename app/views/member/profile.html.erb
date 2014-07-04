@@ -1,0 +1,30 @@
+
+<div class="well margin_top">
+	<div class="row">
+
+		<div class="col-md-3">
+			<div class="text-center">
+				<%= image_tag("unknown_user.png", class: "img-circle") %>
+			</div>
+			
+			<div>
+				<h3><%= @user.username %></h3>
+				<h6>Email: <%= @user.email %></h6>
+				<h6>Weights:</h6>
+				<ul>
+					<% @user.weights.each do |weight| %>
+						<li><%= weight.weight_lbs %> lbs</li>
+					<% end %>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="col-md-9">
+	      <%= content_tag "div", id: "js-main-graph", data: {url: @graphURL} do %>
+	        Loading graph...
+	      <% end %>
+		</div>
+
+	</div>
+</div>

@@ -1,8 +1,11 @@
 class MemberController < ApplicationController
-
-	before_action :get_member, only: [:index,:graph]
+	before_action :get_member, only: [:profile,:graph]
 
 	def index
+		
+	end
+
+	def profile
 		@graphURL = member_graph_path(params.merge(:username => @user.username))
 	end
 
@@ -15,9 +18,13 @@ class MemberController < ApplicationController
 	private
 
     def get_member
-      #@user = User.find(params[:id])
-      #@user = User.find_by username: params[:username]
       @user = User.where("lower(username) = ?", params[:username].downcase).first
+
+      if !@user
+	      flash.now[:notice] = 'Record not found'
+	      render :template => "member/index"
+      end
+
     end
 
 end
