@@ -1,33 +1,56 @@
-<div class="intro text-center col-sm-5">
-	<span><%= image_tag "tape_on_scale.jpg", class:"img-responsive" %></span>
-</div>
-<div class="col-sm-7">
-
-	<h2>Welcome to Bodywise?!</h2>
+<div>
 
 	<% if @signed_in %>
+
+		<div class="intro text-center col-sm-5">
+			<span><%= image_tag "tape_on_scale.jpg", class:"img-responsive" %></span>
+		</div>
+
+		<div class="col-sm-7">
+
+			<h2>Welcome to Bodywise?!</h2>
 		
-		<p>
-			As this is <em>super alpha</em>, a goal weight has been set up 
-			for you and currently has a value of <%= @goal_weight %>lbs!
-		<p>
-		<p>
-			This may not suit you so you can update it by clicking here &#187;
-			<%=link_to "Edit Goal", goal_path %>
-		</p>
-		<p>
-			Other than that, please use the navigation at the top of the site to add and review your weights on a regular basis.
-		</p>
-		<p>
-			All the best, <br/>
-			Rails Newbie :)
-		</p>
+			<p>
+				As this is <em>super alpha</em>, a goal weight has been set up 
+				for you and currently has a value of <%= @goal_weight %>lbs!
+			<p>
+			<p>
+				This may not suit you so you can update it by clicking here &#187;
+				<%=link_to "Edit Goal", goal_path %>
+			</p>
+			<p>
+				Other than that, please use the navigation at the top of the site to add and review your weights on a regular basis.
+			</p>
+			<p>
+				All the best, <br/>
+				Rails Newbie :)
+			</p>
+
+		</div>
+	
 	<% else %>
-		<p class="margin_top">
-			You can <%= link_to "Sign Up", new_user_registration_path %> 
-			or
-			<%= link_to "Sign In", new_user_session_path %>
-		</p>
+
+		<div class="text-center">
+
+			<div class="intro">
+				<span><%= image_tag "tape_on_scale.jpg", class:"img-responsive" %></span>
+			</div>
+
+			<div class="text-center margin_bottom">
+
+				<h2>Welcome to Bodywise?!</h2>
+
+				<p>
+
+					<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-md margin_right" %> 
+					or
+					<%= link_to "Sign In", new_user_session_path, class: "btn btn-default btn-md margin_left" %>
+				</p>
+
+			</div>
+
+		</div>
+
 	<% end %>
 
 </div>

@@ -42,6 +42,9 @@
 					<li class="<%= if_current_use_class("weights","graph",:active) %>">
 						<%= link_to :Graph, weights_graph_path %>
 					</li>
+					<li>
+						<%= link_to "Public Profile", member_index_path(params.merge(:username => @user.username)) %>						
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -58,12 +61,13 @@
 
 		    </div><!-- /.navbar-collapse -->
 		<% else %>
-			<ul class="nav navbar-nav">
-				<li class="<%= cp(new_user_session_path, :active) %>">
-					<%= link_to "Sign In", new_user_session_path %>
-				</li>
-			</ul>
-
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="<%= cp(new_user_session_path, :active) %>">
+						<%= link_to "Sign In", new_user_session_path %>
+					</li>
+				</ul>	
+			</div>
 		<% end %>
 	    
 	  </div><!-- /.container-fluid -->

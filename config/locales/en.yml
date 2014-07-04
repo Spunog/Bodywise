@@ -25,6 +25,8 @@ en:
 en:
   activerecord:
     attributes:
+      user:
+        login: "Username or Email"
       weight:
         weight_lbs: "Weight"
         date_weighted: "Weight"
