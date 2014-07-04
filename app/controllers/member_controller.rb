@@ -2,7 +2,7 @@ class MemberController < ApplicationController
 	before_action :get_member, only: [:profile,:graph]
 
 	def index
-		
+		@users = User.all
 	end
 
 	def profile

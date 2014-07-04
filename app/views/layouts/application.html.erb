@@ -43,7 +43,7 @@
 						<%= link_to :Graph, weights_graph_path %>
 					</li>
 					<li>
-						<%= link_to "Public Profile", member_index_path(params.merge(:username => @user.username)) %>						
+						<%= link_to "Public Profile", member_profile_path(params.merge(:username => @user.username)) %>						
 					</li>
 				</ul>
 

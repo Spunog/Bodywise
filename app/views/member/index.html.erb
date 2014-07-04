@@ -1,1 +1,9 @@
-<h1>Index</h1>
+<h3>Members List</h3>
+
+<div class="list-group">
+
+	<% @users.each do |user| %>
+		<%= link_to user.username, member_profile_path(username: user.username), class: "list-group-item" %>
+	<% end %>
+
+</div>
