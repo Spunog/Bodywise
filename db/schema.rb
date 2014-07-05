@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704140000) do
+ActiveRecord::Schema.define(version: 20140705140249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20140704140000) do
   create_table "goals", force: true do |t|
     t.decimal  "weight_lbs"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "share_categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,14 +50,16 @@ ActiveRecord::Schema.define(version: 20140704140000) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "weights", force: true do |t|
-    t.date     "date_weighted", default: '2014-07-04'
+    t.date     "date_weighted",     default: '2014-07-04'
     t.decimal  "weight_lbs"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "note"
+    t.integer  "share_category_id", default: 1
   end
 
+  add_index "weights", ["share_category_id"], name: "index_weights_on_share_category_id", using: :btree
   add_index "weights", ["user_id", "date_weighted"], name: "index_weights_on_user_id_and_date_weighted", unique: true, using: :btree
 
 end

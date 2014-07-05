@@ -50,6 +50,13 @@
 		    		</div>
 		    	</div>
 
+		    	<div class="row">
+		    		<div class="form-group col-xs-12">
+			    		<%= f.label :share_category_id, "Share with" %>
+			    		<%= f.collection_select :share_category_id, @share_category.all, :id, :name, class: 'form-control' %>
+					</div>
+		    	</div>
+
 		    </div> <!-- end Panel Body -->
 		    <div class="panel-footer">
 				<div class="actions text-center">

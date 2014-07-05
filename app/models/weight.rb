@@ -1,5 +1,6 @@
 class Weight < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :share_category
 	after_initialize :set_date_weighted
 	before_validation :set_date_weighted
 	validates :weight_lbs, :presence => true, numericality: { greater_than_or_equal_to: 0.1 }

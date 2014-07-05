@@ -29,11 +29,12 @@ class WeightsController < ApplicationController
   # GET /weights/new
   def new
     @weight = Weight.new
+    @share_category = ShareCategory
   end
 
   # GET /weights/1/edit
   def edit
-
+    @share_category = ShareCategory
   end
 
   # POST /weights
@@ -84,7 +85,7 @@ class WeightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_params
-      params.require(:weight).permit(:date_weighted, :weight_lbs,:note)
+      params.require(:weight).permit(:date_weighted, :weight_lbs,:note,:share_category_id)
     end
 
     def get_user

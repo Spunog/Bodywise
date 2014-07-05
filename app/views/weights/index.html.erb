@@ -15,6 +15,7 @@
         <tr>
           <th>Date</th>
           <th>lbs</th>
+          <th>Shared With</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -23,8 +24,9 @@
       <tbody>
         <% @weights.each do |weight| %>
           <tr>
-            <td class="col-sm-5"><%= weight.date_weighted.strftime("%d %b %y") %></td>
-            <td class="col-sm-5"><%= weight.weight_lbs %></td>
+            <td class="col-sm-4"><%= weight.date_weighted.strftime("%d %b %y") %></td>
+            <td class="col-sm-2"><%= weight.weight_lbs %></td>
+            <td class="col-sm-4"><%= weight.share_category.name %></td>
             <td class="col-sm-1">
               <%= link_to '', edit_weight_path(weight), class:"btn btn-default glyphicon glyphicon-pencil" %>
             </td>

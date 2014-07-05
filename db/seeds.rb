@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#Share Options
+puts "Creating Share Options..."
+["no one", "my friends", "everyone"].each do |shareOption|
+  ShareCategory.find_or_create_by(name: shareOption)
+end
+puts "Share Options Complete"
