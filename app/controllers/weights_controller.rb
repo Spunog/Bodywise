@@ -2,6 +2,7 @@ class WeightsController < ApplicationController
   before_filter :authenticate_user! #, :except => [:index,:graph]
   before_action :get_user, only: [:index,:show,:edit,:update,:destroy,:new,:create,:graph]
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
+  before_action :set_share_category, excepet: [:index, :new, :edit, :create]
   
   # GET /weights
   # GET /weights.json
@@ -29,12 +30,11 @@ class WeightsController < ApplicationController
   # GET /weights/new
   def new
     @weight = Weight.new
-    @share_category = ShareCategory
   end
 
   # GET /weights/1/edit
   def edit
-    @share_category = ShareCategory
+
   end
 
   # POST /weights
@@ -81,6 +81,10 @@ class WeightsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_weight
       @weight = @user.weights.find(params[:id])
+    end
+
+    def set_share_category
+      @share_category = ShareCategory
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
