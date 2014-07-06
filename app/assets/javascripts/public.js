@@ -18,4 +18,6 @@
 //= require turbolinks
 //= require jquery.ui.datepicker
 //= require moment
+//= require public/magister
+//= require public/modernizr.custom
 //= require_tree ./shared

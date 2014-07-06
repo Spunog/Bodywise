@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Bodywise</title>
-	<%= favicon_link_tag 'fav.ico' %>
-	<%= favicon_link_tag 'fav.png', rel: 'apple-touch-icon', type: 'image/png' %>
-	<%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'public', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		
+		<title>Bodywise</title>
+		<%= favicon_link_tag 'fav.ico' %>
+		<%= favicon_link_tag 'fav.png', rel: 'apple-touch-icon', type: 'image/png' %>
+		<%= stylesheet_link_tag    'public', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'public', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
 
-	<h2>Public Area</h2>
+	<body class="theme-invert">
 
-	<div class='container'>
-		<% if notice %>
-		  <p class="alert alert-success"><%= notice %></p>
-		<% end %>
-		<% if alert %>
-		  <p class="alert alert-danger"><%= alert %></p>
-		<% end %>
+		<nav class="mainmenu">
+			<div class="container">
+				<div class="dropdown">
+					<button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
-		<%= yield %>
-	</div>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						
+						<li class="<%= if_current_use_class("weights","index",:active) %>">
+							<%= link_to "Member List", member_index_path %>
+						</li>
+						
+						<% if user_signed_in? %>
 
-</body>
+							<li><%= link_to 'Edit Weights', weights_path %></li>
+							<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+							<li class="divider"></li>
+							<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+							
+						<% else %>
+							<li class="<%= cp(new_user_session_path, :active) %>">
+								<%= link_to "Sign In", new_user_session_path %>
+							</li>
+						<% end %>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Main (Home) section -->
+		<section class="section" id="head">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+						<% if notice %>
+						<p class="alert alert-success"><%= notice %></p>
+						<% end %>
+						<% if alert %>
+						<p class="alert alert-danger"><%= alert %></p>
+						<% end %>
+						<%= yield %>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</body>
+
 </html>
