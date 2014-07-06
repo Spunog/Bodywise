@@ -21,6 +21,8 @@ module Awesome
     # config.i18n.default_locale = :de
 
     config.assets.initialize_on_precompile = false #required for heroku
+    config.assets.precompile += ['admin.js', 'admin.css']
+    config.assets.precompile += ['public.js', 'public.css']
 
   end
 end
