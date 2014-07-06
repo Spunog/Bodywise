@@ -54,6 +54,8 @@ gem 'figaro'
 
 gem 'momentjs-rails', '~> 2.7.0'
 
+gem 'unicorn'
+
 ruby '2.1.2'
 
 
