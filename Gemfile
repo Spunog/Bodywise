@@ -42,9 +42,10 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'therubyracer', :require => 'v8'
 gem 'twitter-bootswatch-rails', '~> 3.2'
 gem 'twitter-bootswatch-rails-fontawesome'
-gem 'therubyracer', :require => 'v8'
+
 
 gem 'jquery-turbolinks' # fixes issues with on load events
 gem 'will_paginate'
