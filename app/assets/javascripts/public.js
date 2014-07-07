@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap
+//= require cyborg/loader
+//= require cyborg/bootswatch
 //= require highcharts
 //= require turbolinks
 //= require jquery.ui.datepicker
