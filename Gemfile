@@ -44,6 +44,7 @@ gem 'devise'
 
 gem 'therubyracer', :require => 'v8'
 gem 'twitter-bootswatch-rails', '~> 3.2'
+gem 'twitter-bootswatch-rails-helpers'
 gem 'twitter-bootswatch-rails-fontawesome'
 
 
