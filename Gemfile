@@ -32,21 +32,19 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
 gem 'devise'
 
 gem 'therubyracer', :require => 'v8'
 gem 'twitter-bootswatch-rails', '~> 3.2'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'twitter-bootswatch-rails-fontawesome'
-
 
 gem 'jquery-turbolinks' # fixes issues with on load events
 gem 'will_paginate'
@@ -59,8 +57,6 @@ gem 'rails_12factor', group: :production
 gem 'figaro'
 
 gem 'momentjs-rails', '~> 2.7.0'
-
-gem 'unicorn'
 
 ruby '2.1.2'
 
