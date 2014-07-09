@@ -1,7 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
+  id: 1
+  name: 'Private'
 
 two:
-  name: MyString
+  id: 2
+  name: 'Friends'
+
+three:
+  id: 3
+  name: 'Public'

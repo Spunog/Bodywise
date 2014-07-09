@@ -1,9 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2014-06-22 11:33:59
+  date_weighted: 2014-06-22
   weight_lbs: 9.99
-
+  user_id: 1
+  share_category_id: 1
+  note: 'This is a test note'
 two:
-  date: 2014-06-22 11:33:59
+  date_weighted: 2014-06-22
   weight_lbs: 9.99
+  user_id: 2
+  share_category_id: 1
+  note: 'This is a test note'

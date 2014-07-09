@@ -2,7 +2,7 @@ class WeightsController < ApplicationController
   before_filter :authenticate_user! #, :except => [:index,:graph]
   before_action :get_user, only: [:index,:show,:edit,:update,:destroy,:new,:create,:graph]
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
-  before_action :set_share_category, excepet: [:index, :new, :edit, :create]
+  before_action :set_share_category, only: [:new, :edit, :create]
   
   # GET /weights
   # GET /weights.json

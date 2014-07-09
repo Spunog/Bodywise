@@ -3,6 +3,8 @@ require 'test_helper'
 class WeightsControllerTest < ActionController::TestCase
   setup do
     @weight = weights(:one)
+    @user = users(:one)
+    sign_in @user 
   end
 
   test "should get index" do
@@ -18,10 +20,11 @@ class WeightsControllerTest < ActionController::TestCase
 
   test "should create weight" do
     assert_difference('Weight.count') do
-      post :create, weight: { date: @weight.date, weight_lbs: @weight.weight_lbs }
+      #date weighted below needs to be different that fixture data as has unique constraint on user + date
+      post :create, weight: { date_weighted: '2014-10-01', weight_lbs: @weight.weight_lbs, share_category_id: @weight.share_category_id, note: @weight.note }
     end
 
-    assert_redirected_to weight_path(assigns(:weight))
+    assert_redirected_to :weights
   end
 
   test "should show weight" do
@@ -35,8 +38,8 @@ class WeightsControllerTest < ActionController::TestCase
   end
 
   test "should update weight" do
-    patch :update, id: @weight, weight: { date: @weight.date, weight_lbs: @weight.weight_lbs }
-    assert_redirected_to weight_path(assigns(:weight))
+    patch :update, id: @weight, weight: { date_weighted: @weight.date_weighted, weight_lbs: @weight.weight_lbs }
+    assert_redirected_to :weights
   end
 
   test "should destroy weight" do
